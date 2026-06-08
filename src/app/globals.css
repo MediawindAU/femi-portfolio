@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-poppins);
+  --font-display: var(--font-permanent-marker);
+  --color-brand-navy-1: #071459;
+  --color-brand-navy-2: #07246f;
+  --color-brand-card-navy: #1a2c58;
+  --color-brand-yellow: #ffd978;
+  --color-brand-cyan: #06bada;
+  --color-brand-red: #d10606;
+  --color-brand-darkred: #290d0d;
+  --color-brand-ink: #090000;
+  --color-brand-text: #1b1a1a;
+  --color-brand-gray-100: #f3f3f3;
+  --color-brand-gray-200: #eee;
+}
+
+body {
+  font-family: var(--font-poppins), Arial, Helvetica, sans-serif;
+}
+
+@media print {
+  @page {
+    size: A4;
+    margin: 12mm 14mm;
+  }
+  html,
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  body * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a {
+    color: inherit !important;
+    text-decoration: none !important;
+  }
+  /* Hide site chrome that's not needed on the printed CV */
+  header[role="banner"],
+  footer,
+  .print\:hidden {
+    display: none !important;
+  }
+}
