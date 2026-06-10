@@ -28,6 +28,7 @@ type Project = {
   blurb: string;
   tags: Tag[];
   illustration?: { src: string; alt: string };
+  cover?: { src: string; alt: string };
 };
 
 const projects: Project[] = [
@@ -52,6 +53,10 @@ const projects: Project[] = [
       { label: "E-Commerce", slug: "e-commerce" },
       { label: "Beauty Sector", slug: "beauty-sector" },
     ],
+    cover: {
+      src: "/images/asl-cover.png",
+      alt: "Australian Skin Lab — Holy Basil product range",
+    },
   },
   {
     slug: "bawo-language-learning",
@@ -61,6 +66,10 @@ const projects: Project[] = [
       { label: "African Lang", slug: "african-language" },
       { label: "Edtech Sector", slug: "education" },
     ],
+    cover: {
+      src: "/images/bawo-cover.png",
+      alt: "Bawo — Learn African languages, explore the culture",
+    },
   },
 ];
 
@@ -100,9 +109,17 @@ export default function WorkPage() {
                   <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_260px] lg:gap-10">
                     <Link
                       href={`/work/${project.slug}`}
-                      className="group flex aspect-[520/337] items-center justify-center overflow-hidden rounded-[20px] bg-[#0642da] transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
+                      className="group relative flex aspect-[520/337] items-center justify-center overflow-hidden rounded-[20px] bg-[#0642da] transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
                     >
-                      {project.illustration ? (
+                      {project.cover ? (
+                        <Image
+                          src={project.cover.src}
+                          alt={project.cover.alt}
+                          fill
+                          sizes="(min-width: 1024px) 620px, 100vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                        />
+                      ) : project.illustration ? (
                         <Image
                           src={project.illustration.src}
                           alt={project.illustration.alt}
