@@ -68,11 +68,11 @@ export default function AboutPage() {
               </p>
               <p>
                 Over the past decade, I&apos;ve worked across freelance, contract,
-                and in-house environments including time with RioTinto and
-                Australian Skin Lab — designing products that balance business
-                goals with genuine human needs. I hold a Master of Interactive
-                Media Design from Griffith University and undergoing MBA
-                (Advanced) at Torrens University.
+                and in-house environments including time with Australian Skin
+                Lab — designing products that balance business goals with
+                genuine human needs. I hold a Master of Interactive Media Design
+                from Griffith University and undergoing MBA (Advanced) at
+                Torrens University.
               </p>
               <p>
                 Today, I run Mediawind, a product development company where I

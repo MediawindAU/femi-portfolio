@@ -28,7 +28,7 @@ type Project = {
   blurb: string;
   tags: Tag[];
   illustration?: { src: string; alt: string };
-  cover?: { src: string; alt: string };
+  cover?: { src: string; alt: string; bg?: string };
 };
 
 const projects: Project[] = [
@@ -56,6 +56,7 @@ const projects: Project[] = [
     cover: {
       src: "/images/asl-cover.png",
       alt: "Australian Skin Lab — Holy Basil product range",
+      bg: "#0d4954",
     },
   },
   {
@@ -69,6 +70,7 @@ const projects: Project[] = [
     cover: {
       src: "/images/bawo-cover.png",
       alt: "Bawo — Learn African languages, explore the culture",
+      bg: "#ffffff",
     },
   },
 ];
@@ -109,6 +111,11 @@ export default function WorkPage() {
                   <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_260px] lg:gap-10">
                     <Link
                       href={`/work/${project.slug}`}
+                      style={
+                        project.cover?.bg
+                          ? { backgroundColor: project.cover.bg }
+                          : undefined
+                      }
                       className="group relative flex aspect-[520/337] items-center justify-center overflow-hidden rounded-[20px] bg-[#0642da] transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
                     >
                       {project.cover ? (
@@ -117,7 +124,7 @@ export default function WorkPage() {
                           alt={project.cover.alt}
                           fill
                           sizes="(min-width: 1024px) 620px, 100vw"
-                          className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                          className="object-contain transition-transform duration-500 group-hover:scale-[1.03]"
                         />
                       ) : project.illustration ? (
                         <Image
